@@ -21,8 +21,13 @@ if __name__ == '__main__':
     neg_ids = movie_reviews.fileids('neg')
     pos_ids = movie_reviews.fileids('pos')
      
-    neg_feats = [(bigram_feats(movie_reviews.raw(fileids=[f])), 'neg') for f in neg_ids]
-    pos_feats = [(bigram_feats(movie_reviews.raw(fileids=[f])), 'pos') for f in pos_ids]
+    # bag-of-words features
+    neg_feats = [(word_feats(movie_reviews.raw(fileids=[f])), 'neg') for f in neg_ids]
+    pos_feats = [(word_feats(movie_reviews.raw(fileids=[f])), 'pos') for f in pos_ids]
+
+    # uncomment for bag-of-bigram feats (make sure to comment out the preceding two lines)
+    # neg_feats = [(bigram_feats(movie_reviews.raw(fileids=[f])), 'neg') for f in neg_ids]
+    # pos_feats = [(bigram_feats(movie_reviews.raw(fileids=[f])), 'pos') for f in pos_ids]
 
     print 'neg feats = ', len(neg_feats)
     print 'pos feats = ', len(pos_feats)
