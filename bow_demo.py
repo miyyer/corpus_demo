@@ -4,7 +4,7 @@ from nltk.corpus import movie_reviews
 from nltk.tokenize import wordpunct_tokenize
 from nltk.collocations import BigramCollocationFinder
 from nltk.metrics import BigramAssocMeasures
-import itertools, sys
+import itertools
  
 # generate bag-of-words features from raw text
 def word_feats(raw):
